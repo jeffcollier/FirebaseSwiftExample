@@ -1,7 +1,5 @@
 # FirebaseSwiftExample
-Example iOS app using Firebase, Swift 3, Xcode 8, iOS 10. Initially demonstrating only the Authentication module with the email address provider, but expanding over time. Setup instructions are in-progress
-
-Firebase is a mobile platform from Google. The most distinguishing feature for iOS development is a local database in a mobile app that synchronizes with the cloud while gracefully handling offline modes and queueing up changes for the next connected session.
+Example iOS app using Firebase, Swift 3, Xcode 8.2 with Auto Layout and Segues, and iOS 10. Initially demonstrating only the Firebase Authentication module with the email address provider, but I'll expand over time. Firebase is a mobile platform from Google. The most distinguishing feature for iOS development is a local database in a mobile app that synchronizes with the cloud while gracefully handling offline modes and queueing up changes for the next connected session.
 
 ![Video of App Demo](https://raw.githubusercontent.com/jeffcollier/FirebaseSwiftExample/master/FirebaseSwiftExample/Images/FirebaseSwiftExampleSignIn.gif)
 
