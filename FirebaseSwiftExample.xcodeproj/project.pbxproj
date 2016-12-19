@@ -27,6 +27,9 @@
 		686C1A771E0653A10084A080 /* SignUpEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686C1A6F1E0653A10084A080 /* SignUpEmailViewController.swift */; };
 		686C1A781E0653A10084A080 /* SampleAppLogo_280_88@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 686C1A711E0653A10084A080 /* SampleAppLogo_280_88@2x.png */; };
 		686C1A7A1E065AF10084A080 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 686C1A791E065AF10084A080 /* .gitignore */; };
+		686C1A7E1E07155A0084A080 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 686C1A7B1E07155A0084A080 /* LICENSE */; };
+		686C1A7F1E07155A0084A080 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 686C1A7C1E07155A0084A080 /* Podfile */; };
+		686C1A801E07155A0084A080 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 686C1A7D1E07155A0084A080 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +78,9 @@
 		686C1A6F1E0653A10084A080 /* SignUpEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpEmailViewController.swift; sourceTree = "<group>"; };
 		686C1A711E0653A10084A080 /* SampleAppLogo_280_88@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SampleAppLogo_280_88@2x.png"; sourceTree = "<group>"; };
 		686C1A791E065AF10084A080 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		686C1A7B1E07155A0084A080 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		686C1A7C1E07155A0084A080 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		686C1A7D1E07155A0084A080 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8FFBE82BBD31FC04F066D659 /* Pods_FirebaseSwiftExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirebaseSwiftExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A293655E270CC251D53CB116 /* Pods_FirebaseSwiftExampleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirebaseSwiftExampleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEFC63CC516091F5CEEDF842 /* Pods-FirebaseSwiftExampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseSwiftExampleUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseSwiftExampleUITests/Pods-FirebaseSwiftExampleUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -120,6 +126,9 @@
 				D99728E365A9E7E8419D7ADB /* Frameworks */,
 				686C1A791E065AF10084A080 /* .gitignore */,
 				686C1A661E0651BC0084A080 /* GoogleService-Info.plist */,
+				686C1A7D1E07155A0084A080 /* README.md */,
+				686C1A7B1E07155A0084A080 /* LICENSE */,
+				686C1A7C1E07155A0084A080 /* Podfile */,
 			);
 			sourceTree = "<group>";
 		};
@@ -334,12 +343,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				686C1A7F1E07155A0084A080 /* Podfile in Resources */,
 				686C1A7A1E065AF10084A080 /* .gitignore in Resources */,
 				686C1A731E0653A10084A080 /* Authentication.storyboard in Resources */,
 				686C1A431E0651020084A080 /* LaunchScreen.storyboard in Resources */,
 				686C1A671E0651BC0084A080 /* GoogleService-Info.plist in Resources */,
 				686C1A781E0653A10084A080 /* SampleAppLogo_280_88@2x.png in Resources */,
 				686C1A401E0651020084A080 /* Assets.xcassets in Resources */,
+				686C1A7E1E07155A0084A080 /* LICENSE in Resources */,
 				686C1A3E1E0651010084A080 /* Main.storyboard in Resources */,
 				686C1A721E0653A10084A080 /* Assets.xcassets in Resources */,
 			);
@@ -495,6 +506,7 @@
 				686C1A771E0653A10084A080 /* SignUpEmailViewController.swift in Sources */,
 				686C1A371E0651010084A080 /* AppDelegate.swift in Sources */,
 				686C1A751E0653A10084A080 /* ForgotEmailViewController.swift in Sources */,
+				686C1A801E07155A0084A080 /* README.md in Sources */,
 				686C1A391E0651010084A080 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
