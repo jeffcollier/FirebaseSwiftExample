@@ -3,6 +3,8 @@ Example iOS app using Firebase, Swift 3, Xcode 8, iOS 10. Initially demonstratin
 
 Firebase is a mobile platform from Google. The most distinguishing feature for iOS development is a local database in a mobile app that synchronizes with the cloud while gracefully handling offline modes and queueing up changes for the next connected session.
 
+![Video of App Demo](https://raw.githubusercontent.com/jeffcollier/FirebaseSwiftExample/master/FirebaseSwiftExample/Images/FirebaseSwiftExampleSignIn.gif)
+
 # Setup
 1. Install CocoaPods
     * You can utilize gem, rvm ruby, brew and others, or you can obtain the compiled macOS app from https://cocoapods.org
