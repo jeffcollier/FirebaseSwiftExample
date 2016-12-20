@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAnalytics
 import FirebaseAuth
 
 class SignInEmailViewController: UIViewController {
@@ -21,8 +22,13 @@ class SignInEmailViewController: UIViewController {
     }
     
     func handleSuccess (forUser user: FIRUser) {
+        // Cache the email address with the iOS utility class
         UserDefaults().set(user.email, forKey: "auth_emailaddress")
         UserDefaults().synchronize()
+        
+        // Log an event with Firebase Analytics. See FIREventNames.h for pre-defined event strings
+        FIRAnalytics.logEvent(withName: kFIREventLogin, parameters: nil)
+        
         performSegue(withIdentifier: "unwindFromSignIn", sender: self)
     }
         

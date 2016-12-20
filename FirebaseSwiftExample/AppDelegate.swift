@@ -6,7 +6,9 @@
 //  Copyright © 2016 Collierosity, LLC. All rights reserved.
 //
 
+import AdSupport
 import Firebase
+import FirebaseAnalytics
 import FirebaseAuth
 import UIKit
 
@@ -21,6 +23,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Initialize Firebase
         FIRApp.configure()
 
+        // If the user has disabled advertising tracking, configure Firebase Analytics to not use the iOS AdSupport for data such as age and demographic
+        if ASIdentifierManager.shared().isAdvertisingTrackingEnabled {
+            let idfa = ASIdentifierManager.shared().advertisingIdentifier ?? UUID()
+            print("Firebase Analytics will include demographic data as the user has not disabled advertising tracking. IDFA=\(idfa)")
+        } else {
+           FIRAnalyticsConfiguration.sharedInstance().setAnalyticsCollectionEnabled(false)
+        }
+        
         return true
     }
 

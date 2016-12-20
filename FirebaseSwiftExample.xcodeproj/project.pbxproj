@@ -30,6 +30,7 @@
 		686C1A7E1E07155A0084A080 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 686C1A7B1E07155A0084A080 /* LICENSE */; };
 		686C1A7F1E07155A0084A080 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 686C1A7C1E07155A0084A080 /* Podfile */; };
 		686C1A801E07155A0084A080 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 686C1A7D1E07155A0084A080 /* README.md */; };
+		686C1A851E09DA9F0084A080 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 686C1A841E09DA9F0084A080 /* AdSupport.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		686C1A7B1E07155A0084A080 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		686C1A7C1E07155A0084A080 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		686C1A7D1E07155A0084A080 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		686C1A841E09DA9F0084A080 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		8FFBE82BBD31FC04F066D659 /* Pods_FirebaseSwiftExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirebaseSwiftExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A293655E270CC251D53CB116 /* Pods_FirebaseSwiftExampleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirebaseSwiftExampleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEFC63CC516091F5CEEDF842 /* Pods-FirebaseSwiftExampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseSwiftExampleUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseSwiftExampleUITests/Pods-FirebaseSwiftExampleUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				686C1A851E09DA9F0084A080 /* AdSupport.framework in Frameworks */,
 				128C9D3CB8B8AED155A68D40 /* Pods_FirebaseSwiftExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,6 +211,7 @@
 		D99728E365A9E7E8419D7ADB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				686C1A841E09DA9F0084A080 /* AdSupport.framework */,
 				1AFD13AB302DE8D4EAF68024 /* Pods_FirebaseSwiftExample.framework */,
 				8FFBE82BBD31FC04F066D659 /* Pods_FirebaseSwiftExampleTests.framework */,
 				A293655E270CC251D53CB116 /* Pods_FirebaseSwiftExampleUITests.framework */,

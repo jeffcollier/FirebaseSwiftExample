@@ -7,6 +7,7 @@ target 'FirebaseSwiftExample' do
 
   # Pods for FirebaseSwiftExample
   pod ‘Firebase/Core’
+  pod 'Firebase/Analytics'
   pod ‘Firebase/Auth’
   pod ‘Firebase/Database’
 
