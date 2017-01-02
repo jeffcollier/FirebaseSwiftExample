@@ -10,6 +10,7 @@ import AdSupport
 import Firebase
 import FirebaseAnalytics
 import FirebaseAuth
+import FirebaseDatabase
 import UIKit
 
 @UIApplicationMain
@@ -22,6 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Initialize Firebase
         FIRApp.configure()
+        
+        // Initialize Firebase Database
+        FIRDatabase.database().persistenceEnabled = true
 
         // If the user has disabled advertising tracking, configure Firebase Analytics to not use the iOS AdSupport for data such as age and demographic
         if ASIdentifierManager.shared().isAdvertisingTrackingEnabled {

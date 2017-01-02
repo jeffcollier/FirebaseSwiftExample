@@ -15,6 +15,7 @@ class FirstViewController: UIViewController {
     
     // Returning from succesfully signing up a new account or signing in
     @IBAction func unwindFromSignIn(segue: UIStoryboardSegue) {
+        // TODO: refs.keepSynced = true for this user
     }
     
     @IBAction func signOutButtonTapped(_ sender: UIButton) {
@@ -23,6 +24,7 @@ class FirstViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Log Out", style: .default, handler: {(action) in
             do {
                 try FIRAuth.auth()?.signOut()
+                // TODO: refs.keepSynced = false for this user
             } catch let signOutError as NSError {
                 print ("Error signing out: %@", signOutError)
             }

@@ -1,5 +1,5 @@
-# FirebaseSwiftExample
-Example iOS app using Firebase, Swift 3, Xcode 8.2 with Auto Layout and Segues, and iOS 10. Initially demonstrating only the Firebase Authentication module with the email address provider and Analytics, but I'll expand over time. Firebase is a mobile platform from Google. The most distinguishing feature for iOS development is a local database in a mobile app that synchronizes with the cloud while gracefully handling offline modes and queueing up changes for the next connected session.
+# Bucket List - An Example App for Firebase in Swift
+Example iOS app using Firebase, Swift 3, Xcode 8.2 with Auto Layout and Segues, and iOS 10. Demonstrating the Firebase Authentication, Analytics and Database modules. Firebase is a mobile platform from Google. The most distinguishing feature for iOS development is a local database in a mobile app that synchronizes with the cloud while gracefully handling offline modes and queueing up changes for the next connected session.
 
 ![Video of App Demo](https://raw.githubusercontent.com/jeffcollier/FirebaseSwiftExample/master/FirebaseSwiftExample/Images/FirebaseSwiftExampleSignIn.gif)
 
@@ -44,3 +44,7 @@ By default, Firebase collects usage data such as device type, country, and view 
 
 #### Logging Events
 Firebase provides string constants for common events. You can also define your own strings, but take care to avoid clashing with reserved system values such as "first_open_time"
+
+### Firebase Database
+Firebase provide a local databaes in the same way as CoreData but, at the time of this development, the Firebase database is distinguished by its syncrhonization with the cloud, gracefully handling offline modes and queueing up changes for the next connected session. Unlike with CoreData, you query changes with the Firebase data through observer handlers which are often defined in viewDidAppear methods. With this sample app, you should be able to watch data created in realtime in the cloud under "bucketlists" "using the Firebase Database console.  
+
