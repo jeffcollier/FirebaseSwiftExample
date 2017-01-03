@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAnalytics
 import FirebaseAuth
 import FirebaseDatabase
 
@@ -120,6 +121,12 @@ class BucketTableViewController: UITableViewController {
         // Insert the new idea into the Firebase database
         let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
             if let text = alertController.textFields?.first?.text {
+                
+                // Log an event with Firebase Analytics
+                if self.snapshotsController.count == 0 {
+                    FIRAnalytics.logEvent(withName: "BucketListNew", parameters: nil)
+                }
+
                 self.ref?.childByAutoId().setValue(["name": text], andPriority: self.snapshotsController.maxPriority + 10)
             }
         }

@@ -37,7 +37,7 @@ Firebase offers a remote administration of users and their authorizations for yo
 
 ### Firebase Analytics
 #### Tracking
-By default, Firebase collects usage data such as device type, country, and view controllers. Firebase can additional capture data from the iOS AddSupport as long as the user has not disabled advertiser tracking. To include that data such as age and gender, you must:
+By default, Firebase collects usage data such as device type, country, and view controllers. Firebase can additionally capture data from the iOS AdSupport as long as the user has not disabled advertiser tracking. To include that data such as age and gender, you must:
 1. Add the iOS AdSupport framework: [Firebase instructions](https://firebase.google.com/support/guides/analytics-adsupport) -- completed in this project
 2. Check if the user allows ad tracking -- completed
 3. When you submit your app to Apple, you will need to attest to your deference to user preferences and your usage of the ID: [Apple instructions](https://developer.apple.com/library/content/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html#//apple_ref/doc/uid/TP40011225-CH33-SW8)
@@ -46,5 +46,5 @@ By default, Firebase collects usage data such as device type, country, and view 
 Firebase provides string constants for common events. You can also define your own strings, but take care to avoid clashing with reserved system values such as "first_open_time"
 
 ### Firebase Database
-Firebase provide a local databaes in the same way as CoreData but, at the time of this development, the Firebase database is distinguished by its syncrhonization with the cloud, gracefully handling offline modes and queueing up changes for the next connected session. Unlike with CoreData, you query changes with the Firebase data through observer handlers which are often defined in viewDidAppear methods. With this sample app, you should be able to watch data created in realtime in the cloud under "bucketlists" "using the Firebase Database console.  
+Firebase provide a local database in the same way as CoreData. The Firebase database is distinguished from CoreData at the time of this development by its syncrhonization with the cloud and by gracefully handling offline mode, queueing up changes for the next connected session. In order to query data with Firebase, you attach observer handlers which are commonly defined in viewDidAppear methods. With this sample app, you can monitor data being created in the cloud using the Firebase Database console. Look under the "bucketlists" node.  
 

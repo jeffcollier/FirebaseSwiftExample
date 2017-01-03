@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAnalytics
 import FirebaseAuth
 
 class SignUpEmailViewController: UIViewController {
@@ -14,8 +15,10 @@ class SignUpEmailViewController: UIViewController {
     // MARK: Segues
     
     func handleSuccess (forUser user: FIRUser) {
+        // Log an event with Firebase Analytics. See FIREventNames.h for pre-defined event strings
+        FIRAnalytics.logEvent(withName: kFIREventSignUp, parameters: nil)
+        
         let newemail = user.email ?? "your email address"
-        print("in handleSuccess for SignUp")
         let alert = UIAlertController(title: "Success", message: "You have a new account for \(newemail)", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: {(action) in
             UserDefaults().set(user.email, forKey: "auth_emailaddress")
