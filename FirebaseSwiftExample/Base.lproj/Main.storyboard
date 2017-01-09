@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -30,7 +31,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sKd-QD-Ri4" id="JB2-t2-U0O">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -52,10 +53,10 @@
             </objects>
             <point key="canvasLocation" x="1644" y="366"/>
         </scene>
-        <!--First-->
+        <!--Account-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="FirebaseSwiftExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="AccountViewController" customModule="FirebaseSwiftExample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -64,46 +65,77 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="First View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
-                                <rect key="frame" x="109" y="313" width="158" height="42"/>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sample App Logo" translatesAutoresizingMaskIntoConstraints="NO" id="xSL-Ur-JGY" userLabel="App Logo">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="132"/>
+                                <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="132" id="ggU-24-fvx"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
+                                <rect key="frame" x="188" y="154" width="0.0" height="0.0"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by FirstViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-7J-77L">
-                                <rect key="frame" x="90" y="363" width="195" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t5o-0R-wey">
-                                <rect key="frame" x="157" y="468" width="60" height="44"/>
+                                <rect key="frame" x="108" y="441" width="160" height="44"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="L5c-pz-CWD"/>
                                     <constraint firstAttribute="height" constant="44" id="cKI-R6-vUH"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Sign Out"/>
                                 <connections>
                                     <action selector="signOutButtonTapped:" destination="9pv-A4-QxB" eventType="touchUpInside" id="FYy-Vz-cFs"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YaV-wr-tuZ" userLabel="Profile Image View">
+                                <rect key="frame" x="87.5" y="162" width="200" height="200"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="g2v-yh-jST"/>
+                                    <constraint firstAttribute="width" secondItem="YaV-wr-tuZ" secondAttribute="height" multiplier="1:1" id="qbi-l6-Na8"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nsX-jC-MAs">
+                                <rect key="frame" x="88" y="366" width="200" height="28"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                <state key="normal" title="Change Profile Picture"/>
+                                <connections>
+                                    <action selector="changePictureButtonTapped:" destination="9pv-A4-QxB" eventType="touchUpInside" id="dZ5-QR-fUW"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="0MS-i3-Lr7">
+                                <rect key="frame" x="169" y="244" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="6BV-lF-sBN"/>
-                            <constraint firstItem="t5o-0R-wey" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="6pq-YP-8Ud"/>
-                            <constraint firstItem="KQZ-1w-vlD" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="9M1-dZ-ept"/>
-                            <constraint firstItem="KQZ-1w-vlD" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="EkL-6c-ff6"/>
-                            <constraint firstItem="t5o-0R-wey" firstAttribute="top" secondItem="A5M-7J-77L" secondAttribute="bottom" constant="88" id="cXm-7c-txv"/>
-                            <constraint firstItem="A5M-7J-77L" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="8" symbolic="YES" id="cfb-er-3JN"/>
-                            <constraint firstItem="A5M-7J-77L" firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="e1l-AV-tCB"/>
-                            <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
-                            <constraint firstItem="A5M-7J-77L" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="tnH-bU-ZvD"/>
-                            <constraint firstItem="A5M-7J-77L" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="8" id="vmm-c2-H51"/>
+                            <constraint firstItem="KQZ-1w-vlD" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="2Zo-g9-uPX"/>
+                            <constraint firstItem="t5o-0R-wey" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="DYf-ib-Hct"/>
+                            <constraint firstItem="KQZ-1w-vlD" firstAttribute="top" secondItem="xSL-Ur-JGY" secondAttribute="bottom" constant="22" id="HmB-Kq-5gq"/>
+                            <constraint firstItem="nsX-jC-MAs" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="ICA-sJ-Sgz"/>
+                            <constraint firstAttribute="trailing" secondItem="xSL-Ur-JGY" secondAttribute="trailing" id="RUr-Rg-htD"/>
+                            <constraint firstItem="xSL-Ur-JGY" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="TWi-Zt-9D8"/>
+                            <constraint firstItem="YaV-wr-tuZ" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="cee-7R-muM"/>
+                            <constraint firstItem="nsX-jC-MAs" firstAttribute="top" secondItem="YaV-wr-tuZ" secondAttribute="bottom" constant="4" id="jfx-hZ-EDw"/>
+                            <constraint firstItem="nsX-jC-MAs" firstAttribute="width" secondItem="YaV-wr-tuZ" secondAttribute="width" id="lW2-G9-dEi"/>
+                            <constraint firstItem="xSL-Ur-JGY" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" id="mM7-8C-qim"/>
+                            <constraint firstItem="0MS-i3-Lr7" firstAttribute="centerX" secondItem="YaV-wr-tuZ" secondAttribute="centerX" id="nmy-GA-UFA"/>
+                            <constraint firstItem="0MS-i3-Lr7" firstAttribute="centerY" secondItem="YaV-wr-tuZ" secondAttribute="centerY" id="rpt-eg-Qeg"/>
+                            <constraint firstItem="t5o-0R-wey" firstAttribute="top" secondItem="nsX-jC-MAs" secondAttribute="bottom" constant="47" id="vZ8-Zq-7xP"/>
+                            <constraint firstItem="YaV-wr-tuZ" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="8" id="z1b-5m-adQ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" selectedImage="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Account" image="Account Tab Bar" id="acW-dT-cKf"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="0MS-i3-Lr7" id="Cez-Lv-fp4"/>
+                        <outlet property="nameLabel" destination="KQZ-1w-vlD" id="yf9-bC-lVs"/>
+                        <outlet property="profileImageView" destination="YaV-wr-tuZ" id="ZLh-wF-A50"/>
                         <segue destination="bn0-vB-sHV" kind="presentation" identifier="showAuthSignIn" id="KVC-JH-QED"/>
                         <segue destination="dFe-Fn-aMs" kind="unwind" identifier="unwindFromSignIn" unwindAction="unwindFromSignInSegue:" id="T7f-Tw-GOr"/>
                     </connections>
@@ -136,9 +168,9 @@
         <scene sceneID="Haw-Yj-Hug">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XuD-zb-a6J" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Bucket List" image="BucketIcon" id="gc3-OP-ZeN"/>
+                    <tabBarItem key="tabBarItem" title="Bucket List" image="Bucket Tab Bar" id="gc3-OP-ZeN"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mK4-vA-i3w">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mK4-vA-i3w">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
@@ -154,7 +186,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BucketIcon" width="40" height="40"/>
-        <image name="first" width="30" height="30"/>
+        <image name="Account Tab Bar" width="24" height="24"/>
+        <image name="Bucket Tab Bar" width="30" height="30"/>
+        <image name="Sample App Logo" width="280" height="88"/>
     </resources>
 </document>

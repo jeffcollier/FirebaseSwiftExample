@@ -1,5 +1,5 @@
 # Bucket List - An Example App for Firebase in Swift
-Example iOS app using Firebase, Swift 3, Xcode 8.2 with Auto Layout and Segues, and iOS 10. Demonstrating the Firebase Authentication, Analytics and Database modules. Firebase is a mobile platform from Google. The most distinguishing feature for iOS development is a local database in a mobile app that synchronizes with the cloud while gracefully handling offline modes and queueing up changes for the next connected session.
+Example iOS app using Firebase, Swift 3, Xcode 8.2 with Auto Layout and Segues, and iOS 10. Demonstrating the Firebase Database, Storage (Images), Authentication, and Analytics modules. Firebase is a mobile platform from Google. The most distinguishing feature for iOS development is a local database in a mobile app that synchronizes with the cloud while gracefully handling offline modes and queueing up changes for the next connected session.
 
 ![Video of App Demo](https://raw.githubusercontent.com/jeffcollier/FirebaseSwiftExample/master/FirebaseSwiftExample/Images/FirebaseSwiftExampleSignIn.gif)
 
@@ -47,4 +47,30 @@ Firebase provides string constants for common events. You can also define your o
 
 ### Firebase Database
 Firebase provide a local database in the same way as CoreData. The Firebase database is distinguished from CoreData at the time of this development by its syncrhonization with the cloud and by gracefully handling offline mode, queueing up changes for the next connected session. In order to query data with Firebase, you attach observer handlers which are commonly defined in viewDidAppear methods. With this sample app, you can monitor data being created in the cloud using the Firebase Database console. Look under the "bucketlists" node.  
+
+### Firebase Storage
+
+#### Security
+By default, your Firebase Storage project will be setup to allow any authenticated user to download any data. You will eventually want to further restrict storage access using the Firebase console. You can find the documentation [here](https://firebase.google.com/docs/storage/security/user-security) and an example below:
+
+```
+service firebase.storage {
+  match /b/[REPLACED WITH YOUR FIREBASE STORAGE BUCKET]/o {
+    // Public (e.g. app images): Must be an app user to write
+    match /public/{allPaths=**} {
+      allow read, write: if request.auth != null;
+    }
+    // Shared (e.g. user thumbnail images): Must be an app user to read
+    match /shared/{userId}/{allPaths=**} {
+      allow read: if request.auth != null;
+      allow write: if request.auth.uid == userId;
+    }
+    // Private (e.g. user date)
+    match /private/{userId}/{allPaths=**} {
+      allow read: if request.auth.uid == userId;
+      allow write: if request.auth.uid == userId;
+    }
+  }
+}
+```
 

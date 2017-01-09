@@ -12,8 +12,7 @@
 		408587280F32D7E994E1FEA2 /* Pods_FirebaseSwiftExampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A293655E270CC251D53CB116 /* Pods_FirebaseSwiftExampleUITests.framework */; };
 		684EEAE11E1AEA6B008C7552 /* FirebaseSnapshotsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684EEAE01E1AEA6B008C7552 /* FirebaseSnapshotsController.swift */; };
 		686C1A371E0651010084A080 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686C1A361E0651010084A080 /* AppDelegate.swift */; };
-		686C1A391E0651010084A080 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686C1A381E0651010084A080 /* FirstViewController.swift */; };
-		686C1A3B1E0651010084A080 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686C1A3A1E0651010084A080 /* SecondViewController.swift */; };
+		686C1A391E0651010084A080 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686C1A381E0651010084A080 /* AccountViewController.swift */; };
 		686C1A3E1E0651010084A080 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 686C1A3C1E0651010084A080 /* Main.storyboard */; };
 		686C1A401E0651020084A080 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 686C1A3F1E0651020084A080 /* Assets.xcassets */; };
 		686C1A431E0651020084A080 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 686C1A411E0651020084A080 /* LaunchScreen.storyboard */; };
@@ -22,7 +21,6 @@
 		686C1A671E0651BC0084A080 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 686C1A661E0651BC0084A080 /* GoogleService-Info.plist */; };
 		686C1A721E0653A10084A080 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 686C1A691E0653A10084A080 /* Assets.xcassets */; };
 		686C1A731E0653A10084A080 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 686C1A6A1E0653A10084A080 /* Authentication.storyboard */; };
-		686C1A741E0653A10084A080 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686C1A6C1E0653A10084A080 /* Base.swift */; };
 		686C1A751E0653A10084A080 /* ForgotEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686C1A6D1E0653A10084A080 /* ForgotEmailViewController.swift */; };
 		686C1A761E0653A10084A080 /* SignInEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686C1A6E1E0653A10084A080 /* SignInEmailViewController.swift */; };
 		686C1A771E0653A10084A080 /* SignUpEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686C1A6F1E0653A10084A080 /* SignUpEmailViewController.swift */; };
@@ -31,6 +29,7 @@
 		686C1A7F1E07155A0084A080 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 686C1A7C1E07155A0084A080 /* Podfile */; };
 		686C1A801E07155A0084A080 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 686C1A7D1E07155A0084A080 /* README.md */; };
 		686C1A851E09DA9F0084A080 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 686C1A841E09DA9F0084A080 /* AdSupport.framework */; };
+		686C363A1E215BFD00B1F2FA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686C36391E215BFC00B1F2FA /* Extensions.swift */; };
 		687690D71E0C554900401A99 /* BucketTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687690D61E0C554900401A99 /* BucketTableViewController.swift */; };
 		68A669111E13FACB0049BFDC /* BucketIdeaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A669101E13FACB0049BFDC /* BucketIdeaTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -61,8 +60,7 @@
 		684EEAE01E1AEA6B008C7552 /* FirebaseSnapshotsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseSnapshotsController.swift; path = Database/FirebaseSnapshotsController.swift; sourceTree = "<group>"; };
 		686C1A331E0651010084A080 /* FirebaseSwiftExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirebaseSwiftExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		686C1A361E0651010084A080 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		686C1A381E0651010084A080 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		686C1A3A1E0651010084A080 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		686C1A381E0651010084A080 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		686C1A3D1E0651010084A080 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		686C1A3F1E0651020084A080 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		686C1A421E0651020084A080 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -76,7 +74,6 @@
 		686C1A661E0651BC0084A080 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		686C1A691E0653A10084A080 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		686C1A6A1E0653A10084A080 /* Authentication.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
-		686C1A6C1E0653A10084A080 /* Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
 		686C1A6D1E0653A10084A080 /* ForgotEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotEmailViewController.swift; sourceTree = "<group>"; };
 		686C1A6E1E0653A10084A080 /* SignInEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInEmailViewController.swift; sourceTree = "<group>"; };
 		686C1A6F1E0653A10084A080 /* SignUpEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpEmailViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +82,7 @@
 		686C1A7C1E07155A0084A080 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		686C1A7D1E07155A0084A080 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		686C1A841E09DA9F0084A080 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		686C36391E215BFC00B1F2FA /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		687690D61E0C554900401A99 /* BucketTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketTableViewController.swift; sourceTree = "<group>"; };
 		68A669101E13FACB0049BFDC /* BucketIdeaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketIdeaTableViewCell.swift; sourceTree = "<group>"; };
 		8FFBE82BBD31FC04F066D659 /* Pods_FirebaseSwiftExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirebaseSwiftExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,14 +153,14 @@
 				686C1A681E0653A10084A080 /* Authentication */,
 				68DDF7C01E19EA3A0019430E /* Database */,
 				686C1A3C1E0651010084A080 /* Main.storyboard */,
-				686C1A3F1E0651020084A080 /* Assets.xcassets */,
 				686C1A411E0651020084A080 /* LaunchScreen.storyboard */,
+				686C1A3F1E0651020084A080 /* Assets.xcassets */,
 				686C1A441E0651020084A080 /* Info.plist */,
 				686C1A361E0651010084A080 /* AppDelegate.swift */,
-				686C1A381E0651010084A080 /* FirstViewController.swift */,
-				686C1A3A1E0651010084A080 /* SecondViewController.swift */,
+				686C1A381E0651010084A080 /* AccountViewController.swift */,
 				687690D61E0C554900401A99 /* BucketTableViewController.swift */,
 				68A669101E13FACB0049BFDC /* BucketIdeaTableViewCell.swift */,
+				686C36391E215BFC00B1F2FA /* Extensions.swift */,
 			);
 			path = FirebaseSwiftExample;
 			sourceTree = "<group>";
@@ -198,7 +196,6 @@
 		686C1A6B1E0653A10084A080 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				686C1A6C1E0653A10084A080 /* Base.swift */,
 				686C1A6D1E0653A10084A080 /* ForgotEmailViewController.swift */,
 				686C1A6E1E0653A10084A080 /* SignInEmailViewController.swift */,
 				686C1A6F1E0653A10084A080 /* SignUpEmailViewController.swift */,
@@ -510,16 +507,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				687690D71E0C554900401A99 /* BucketTableViewController.swift in Sources */,
-				686C1A741E0653A10084A080 /* Base.swift in Sources */,
+				686C363A1E215BFD00B1F2FA /* Extensions.swift in Sources */,
 				686C1A761E0653A10084A080 /* SignInEmailViewController.swift in Sources */,
 				68A669111E13FACB0049BFDC /* BucketIdeaTableViewCell.swift in Sources */,
-				686C1A3B1E0651010084A080 /* SecondViewController.swift in Sources */,
 				684EEAE11E1AEA6B008C7552 /* FirebaseSnapshotsController.swift in Sources */,
 				686C1A771E0653A10084A080 /* SignUpEmailViewController.swift in Sources */,
 				686C1A371E0651010084A080 /* AppDelegate.swift in Sources */,
 				686C1A751E0653A10084A080 /* ForgotEmailViewController.swift in Sources */,
 				686C1A801E07155A0084A080 /* README.md in Sources */,
-				686C1A391E0651010084A080 /* FirstViewController.swift in Sources */,
+				686C1A391E0651010084A080 /* AccountViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
