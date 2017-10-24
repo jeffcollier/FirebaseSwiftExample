@@ -1,5 +1,5 @@
 # Bucket List - An Example App for Firebase in Swift
-Example iOS app using Firebase, Swift 3, Xcode 8.2 with Auto Layout and Segues, and iOS 10. Demonstrating the Firebase Database, Storage (Images), Authentication, and Analytics modules. Firebase is a mobile platform from Google. The most distinguishing feature for iOS development is a local database in a mobile app that synchronizes with the cloud while gracefully handling offline modes and queueing up changes for the next connected session.
+Example iOS app using Firebase, Swift 4, Xcode 9 with Auto Layout and Segues, and iOS 11. Demonstrating the Firebase Cloud Firestore, Storage (Images), Authentication, and Analytics modules. Firebase is a mobile platform from Google. The most distinguishing feature for iOS development is a local database in a mobile app that synchronizes with the cloud while gracefully handling offline modes and queueing up changes for the next connected session.
 
 ![Video of App Demo](https://raw.githubusercontent.com/jeffcollier/FirebaseSwiftExample/master/FirebaseSwiftExample/Images/FirebaseSwiftExampleSignIn.gif)
 
