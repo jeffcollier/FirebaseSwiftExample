@@ -25,19 +25,15 @@ class ForgotEmailViewController: UIViewController {
         configureViewBusy()
         
         // Sign in a user with Firebase using the email provider. Callback with FIRUser, Error with _code = FIRAuthErrorCode
-        FIRAuth.auth()?.sendPasswordReset(withEmail: email) { (error) in
+        Auth.auth().sendPasswordReset(withEmail: email) { (error) in
             
             self.configureViewNotBusy()
             
-            if let error = error, let errorCode = FIRAuthErrorCode(rawValue: error._code) {
+            if let error = error, let errorCode = AuthErrorCode(rawValue: error._code) {
                 switch errorCode {
-                case .errorCodeUserNotFound:
+                case .invalidRecipientEmail:
                     let alert = UIAlertController(title: "Incorrect address", message: "There is no record of an account with that email address. Please check that you have entered it correctly", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Try Again", style: .default, handler: {(action) in }))
-                    self.present(alert, animated: true, completion: {() -> Void in })
-                case .errorCodeInvalidEmail:
-                    let alert = UIAlertController(title: "Incorrect address", message: "The email address you entered doesn't appear to be a valid address. Please check your spelling and try again", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Try Again", style: .default, handler: {(action) -> Void in }))
                     self.present(alert, animated: true, completion: {() -> Void in })
                 default:
                     let alert = UIAlertController(title: "Something is Fucked Up", message: "Here is the message from Firebase: \(error.localizedDescription)", preferredStyle: .alert)

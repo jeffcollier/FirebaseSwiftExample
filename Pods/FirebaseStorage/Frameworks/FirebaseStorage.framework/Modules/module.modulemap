@@ -1,18 +1,7 @@
 framework module FirebaseStorage {
-
-  export *
-
   umbrella header "FirebaseStorage.h"
-
-  header "FIRStorage.h"
-  header "FIRStorageConstants.h"
-  header "FIRStorageDownloadTask.h"
-  header "FIRStorageMetadata.h"
-  header "FIRStorageObservableTask.h"
-  header "FIRStorageReference.h"
-  header "FIRStorageTask.h"
-  header "FIRStorageTaskSnapshot.h"
-  header "FIRStorageUploadTask.h"
-
+  export *
+  module * { export *}
+  link "z"
   link framework "MobileCoreServices"
-}
+  link framework "Security"}

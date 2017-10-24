@@ -10,7 +10,7 @@ import AdSupport
 import Firebase
 import FirebaseAnalytics
 import FirebaseAuth
-import FirebaseDatabase
+import FirebaseFirestore
 import UIKit
 
 @UIApplicationMain
@@ -18,21 +18,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    // TODO: Make buttons (shapes and transparent) dynamically adjust for Accessibility just like labels (which have IB property)
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         // Initialize Firebase
-        FIRApp.configure()
+        FirebaseApp.configure()
         
-        // Initialize Firebase Database
-        FIRDatabase.database().persistenceEnabled = true
-
+        // Initialize Cloud Firestore
+        /* None of this is necessary because offlien persistence is enabled by default
+        let settings = FirestoreSettings()
+        settings.isPersistenceEnabled = true
+        let db = Firestore.firestore()
+        db.settings = settings */
+        
         // If the user has disabled advertising tracking, configure Firebase Analytics to not use the iOS AdSupport for data such as age and demographic
         if ASIdentifierManager.shared().isAdvertisingTrackingEnabled {
-            let idfa = ASIdentifierManager.shared().advertisingIdentifier ?? UUID()
+            let idfa = ASIdentifierManager.shared().advertisingIdentifier // ?? UUID() With the left side no longer optional, this is not required
             print("Firebase Analytics will include demographic data as the user has not disabled advertising tracking. IDFA=\(idfa)")
         } else {
-           FIRAnalyticsConfiguration.sharedInstance().setAnalyticsCollectionEnabled(false)
+           AnalyticsConfiguration.shared().setAnalyticsCollectionEnabled(false)
         }
         
         return true

@@ -26,7 +26,7 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Log Out", style: .default, handler: {(action) in
             do {
-                try FIRAuth.auth()?.signOut()
+                try Auth.auth().signOut()
                 self.profileImageView.image = nil
                 // TODO: refs.keepSynced = false for this user
             } catch let signOutError as NSError {
@@ -43,8 +43,8 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
         let alert = UIAlertController(title: "Change Profile Picture", message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Remove Profile Picture", style: .destructive, handler: {(action) in
             self.profileImageView.image = nil
-            guard let user = FIRAuth.auth()?.currentUser else { return }
-            let storageRef = FIRStorage.storage().reference()
+            guard let user = Auth.auth().currentUser else { return }
+            let storageRef = Storage.storage().reference()
             storageRef.child("shared/\(user.uid)/profile-400x400.png").delete {(error) in
                 print("Error occurred deleting profile image from Firebase Storage: \(error?.localizedDescription)")
             }
@@ -77,7 +77,7 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         guard let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage,
-              let user = FIRAuth.auth()?.currentUser else {
+              let user = Auth.auth().currentUser else {
             picker.dismiss(animated: true, completion: nil)
             return
         }
@@ -93,9 +93,9 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
         self.profileImageView.image = image
             
         // Upload the new profile image to Firebase Storage
-        let storageRef = FIRStorage.storage().reference().child("shared/\(user.uid)/profile-400x400.png")
-        let metadata = FIRStorageMetadata(dictionary: ["contentType": "image/png"])
-        let uploadTask = storageRef.put(imageData, metadata: metadata) { (metadata, error) in
+        let storageRef = Storage.storage().reference().child("shared/\(user.uid)/profile-400x400.png")
+        let metadata = StorageMetadata(dictionary: ["contentType": "image/png"])
+        let uploadTask = storageRef.putData(imageData, metadata: metadata) { (metadata, error) in
             guard metadata != nil else {
                 print("Error uploading image to Firebase Storage: \(error?.localizedDescription)")
                 return
@@ -103,7 +103,7 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
             // Metadata dictionary: bucket, contentType, downloadTokens, downloadURL, [file]name, updated, et al
             
             // Log the event with Firebase Analytics
-            FIRAnalytics.logEvent(withName: "User-NewProfileImage", parameters: nil)
+            Analytics.logEvent("User_NewProfileImage", parameters: nil)
 
             // Create a thumbnail image for future use, too
             // TODO: Move this to a server-side background worker task
@@ -111,8 +111,8 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
                 let imageData = UIImagePNGRepresentation(image) else {
                     return
             }
-            let storageRef = FIRStorage.storage().reference().child("shared/\(user.uid)/profile-80x80.png")
-            storageRef.put(imageData, metadata: FIRStorageMetadata(dictionary: ["contentType": "image/png"]))
+            let storageRef = Storage.storage().reference().child("shared/\(user.uid)/profile-80x80.png")
+            storageRef.putData(imageData, metadata: StorageMetadata(dictionary: ["contentType": "image/png"]))
         }
             
         picker.dismiss(animated: true, completion: nil)
@@ -128,7 +128,7 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        FIRAuth.auth()?.addStateDidChangeListener({(auth, user) in
+        Auth.auth().addStateDidChangeListener({(auth, user) in
             
             if user == nil {
                 self.performSegue(withIdentifier: "showAuthSignIn", sender: self)
@@ -142,15 +142,15 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
         super.viewWillAppear(animated)
 
         // If a user is logged in, setup the view with name, profile image, et al
-        if let user = FIRAuth.auth()?.currentUser {
+        if let user = Auth.auth().currentUser {
             
             nameLabel.text = user.displayName ?? user.email
             
             if profileImageView.image == nil {
                 // Download the profile image from Firebase Storage with a maximum allowed size of 2MB (2 * 1024 * 1024 bytes)
                 activityIndicator.startAnimating()
-                let imageStorageRef = FIRStorage.storage().reference().child("shared/\(user.uid)/profile-400x400.png")
-                let downloadTask = imageStorageRef.data(withMaxSize: 2 * 1024 * 1024) { data, error in
+                let imageStorageRef = Storage.storage().reference().child("shared/\(user.uid)/profile-400x400.png")
+                let downloadTask = imageStorageRef.getData(maxSize: 2 * 1024 * 1024) { data, error in
                     // Error available with .localizedDescription, but can simply be that the image does not exist yet
                     self.activityIndicator.stopAnimating()
                     if error == nil, let data = data {

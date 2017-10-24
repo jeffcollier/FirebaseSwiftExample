@@ -6,23 +6,27 @@ Example iOS app using Firebase, Swift 3, Xcode 8.2 with Auto Layout and Segues, 
 # Setup
 1. Install CocoaPods
     * You can utilize gem, rvm ruby, brew and others, or you can obtain the compiled macOS app from https://cocoapods.org
+    * Open the CocoaPods app, and when you are asked about installing the command-line tools, select Yes
 2. [Setup Your Own Firebase Account](https://firebase.google.com)
 3. Create a Firebase Project for this App
     * Login to your Firebase account
     * Locate the console
     * Locate the action to create a new project
         * Project Name: Enter any name -- there is no dependency on this example project
-4. Add Firebase to Your iOS App -- You should see a project overview screen -- select the action to add a Firebase to your iOS app
+4. Add Firebase to Your iOS App -- In the Firebase console, you should see a project overview screen for your new project -- select the action to add an iOS app to your Firebase project
     1. App Details - iOS Bundle ID: There is a dependency on the Bundle Identifier in the Xcode project -- either enter your bundle ID here and update in your Xcode project, or enter the value from this sample Xcode project here
     2. Config File: In this step, you'll download the required GoogleService-Info.plist file
         * Move that file to the root directory of this sample project (i.e. the directory containing FirebaseSwiftExample.xcodeproj)
-    3. Install Pod: The Firebase screen will include instructions for using CocoaPods here to manage dependencies. You do not need to take this action, as the files already exist in this sample project
-        * Note that with your next project, this is the step that will generate an Xcode workspace for your Xcode project. However, the workspace already exists for your for this sample projecdt
+        * Note: A sample is not provided because this file contains IDs and keys
+    3. Install Pod: The Firebase screen will include instructions for using CocoaPods here to manage dependencies. You do not need to create a Podfifle, or edit it. A Podfile already exist in this sample project (in the the top directory).
+        * You **may** need to run ```pod install``` as the CocoaPods repository is stored elsewhere (e.g. ~/.cocoapods/repos/master). If you do not already have a repository, you may see the first step, "Setting up CocoaPods master repo", run for more than 15 minutes.
+        * Note that with your next project, this is the step that will generate an Xcode workspace for your Xcode project. However, the workspace already exists for your for this sample project
     4. Add Initialization Code: Again, you do not need to take this action, as the code already exists
-5. Setup Firebase Authentication -- You should see the proejct overview screen. Location the Authentication tile and select the option to Get Started
+5. Setup Firebase Authentication -- You should see the proejct overview screen. Locate the Authentication tile and select the option to Get Started
     1. Select the option to Setup Sign-In Method
     2. In the list of providers, locate Email, and select the row
     3. Enable Email, and save
+5. Setup Cloud Firestore as the Database -- In the same console project overview screen, locate the Database tile and select "Cloud Firestore"
 6. Complete in Xcode -- Open the workspace (i.e. FirebaseSwiftExample.xcworkspace), **NOT** the project file
     1. You should see two top-level items: the project (FirebaseSwiftExample) and Pods
     2. Select the project and the action to add files (e.g. menu / File / Add files)
@@ -45,8 +49,8 @@ By default, Firebase collects usage data such as device type, country, and view 
 #### Logging Events
 Firebase provides string constants for common events. You can also define your own strings, but take care to avoid clashing with reserved system values such as "first_open_time"
 
-### Firebase Database
-Firebase provide a local database in the same way as CoreData. The Firebase database is distinguished from CoreData at the time of this development by its syncrhonization with the cloud and by gracefully handling offline mode, queueing up changes for the next connected session. In order to query data with Firebase, you attach observer handlers which are commonly defined in viewDidAppear methods. With this sample app, you can monitor data being created in the cloud using the Firebase Database console. Look under the "bucketlists" node.  
+### Cloud Firestore
+This replacement for the Firebase Realtime Database provide a local database in the same way as CoreData. The Firebase database is distinguished from CoreData at the time of this development by its syncrhonization with the cloud and by gracefully handling offline mode, queueing up changes for the next connected session. In order to query data with Firebase, you attach listener  handlers which are commonly defined in viewDidAppear methods. With this sample app, you can monitor data being created in the cloud using the Firebase Database console. Look under the "users" collection, then "bucketlists".
 
 ### Firebase Storage
 

@@ -18,7 +18,6 @@
 		686C1A431E0651020084A080 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 686C1A411E0651020084A080 /* LaunchScreen.storyboard */; };
 		686C1A4E1E0651020084A080 /* FirebaseSwiftExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686C1A4D1E0651020084A080 /* FirebaseSwiftExampleTests.swift */; };
 		686C1A591E0651020084A080 /* FirebaseSwiftExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686C1A581E0651020084A080 /* FirebaseSwiftExampleUITests.swift */; };
-		686C1A671E0651BC0084A080 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 686C1A661E0651BC0084A080 /* GoogleService-Info.plist */; };
 		686C1A721E0653A10084A080 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 686C1A691E0653A10084A080 /* Assets.xcassets */; };
 		686C1A731E0653A10084A080 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 686C1A6A1E0653A10084A080 /* Authentication.storyboard */; };
 		686C1A751E0653A10084A080 /* ForgotEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686C1A6D1E0653A10084A080 /* ForgotEmailViewController.swift */; };
@@ -27,9 +26,9 @@
 		686C1A7A1E065AF10084A080 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 686C1A791E065AF10084A080 /* .gitignore */; };
 		686C1A7E1E07155A0084A080 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 686C1A7B1E07155A0084A080 /* LICENSE */; };
 		686C1A7F1E07155A0084A080 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 686C1A7C1E07155A0084A080 /* Podfile */; };
-		686C1A801E07155A0084A080 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 686C1A7D1E07155A0084A080 /* README.md */; };
 		686C1A851E09DA9F0084A080 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 686C1A841E09DA9F0084A080 /* AdSupport.framework */; };
 		686C363A1E215BFD00B1F2FA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686C36391E215BFC00B1F2FA /* Extensions.swift */; };
+		6873A2B91F9E691D005FF8A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6873A2B81F9E691D005FF8A8 /* GoogleService-Info.plist */; };
 		687690D71E0C554900401A99 /* BucketTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687690D61E0C554900401A99 /* BucketTableViewController.swift */; };
 		68A669111E13FACB0049BFDC /* BucketIdeaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A669101E13FACB0049BFDC /* BucketIdeaTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -71,7 +70,6 @@
 		686C1A541E0651020084A080 /* FirebaseSwiftExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FirebaseSwiftExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		686C1A581E0651020084A080 /* FirebaseSwiftExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSwiftExampleUITests.swift; sourceTree = "<group>"; };
 		686C1A5A1E0651020084A080 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		686C1A661E0651BC0084A080 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		686C1A691E0653A10084A080 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		686C1A6A1E0653A10084A080 /* Authentication.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
 		686C1A6D1E0653A10084A080 /* ForgotEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotEmailViewController.swift; sourceTree = "<group>"; };
@@ -79,10 +77,11 @@
 		686C1A6F1E0653A10084A080 /* SignUpEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpEmailViewController.swift; sourceTree = "<group>"; };
 		686C1A791E065AF10084A080 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		686C1A7B1E07155A0084A080 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		686C1A7C1E07155A0084A080 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		686C1A7C1E07155A0084A080 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		686C1A7D1E07155A0084A080 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		686C1A841E09DA9F0084A080 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		686C36391E215BFC00B1F2FA /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		6873A2B81F9E691D005FF8A8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		687690D61E0C554900401A99 /* BucketTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketTableViewController.swift; sourceTree = "<group>"; };
 		68A669101E13FACB0049BFDC /* BucketIdeaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketIdeaTableViewCell.swift; sourceTree = "<group>"; };
 		8FFBE82BBD31FC04F066D659 /* Pods_FirebaseSwiftExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirebaseSwiftExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,7 +129,7 @@
 				F919872C79C341F64F2C0466 /* Pods */,
 				D99728E365A9E7E8419D7ADB /* Frameworks */,
 				686C1A791E065AF10084A080 /* .gitignore */,
-				686C1A661E0651BC0084A080 /* GoogleService-Info.plist */,
+				6873A2B81F9E691D005FF8A8 /* GoogleService-Info.plist */,
 				686C1A7D1E07155A0084A080 /* README.md */,
 				686C1A7B1E07155A0084A080 /* LICENSE */,
 				686C1A7C1E07155A0084A080 /* Podfile */,
@@ -242,12 +241,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 686C1A5D1E0651020084A080 /* Build configuration list for PBXNativeTarget "FirebaseSwiftExample" */;
 			buildPhases = (
-				8C14477E1757EA1AE7D135F4 /* 📦 Check Pods Manifest.lock */,
+				8C14477E1757EA1AE7D135F4 /* [CP] Check Pods Manifest.lock */,
 				686C1A2F1E0651010084A080 /* Sources */,
 				686C1A301E0651010084A080 /* Frameworks */,
 				686C1A311E0651010084A080 /* Resources */,
-				8610640B065049E03B1399FC /* 📦 Embed Pods Frameworks */,
-				2C1E41FC365D236F46E6F1EA /* 📦 Copy Pods Resources */,
+				8610640B065049E03B1399FC /* [CP] Embed Pods Frameworks */,
+				2C1E41FC365D236F46E6F1EA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -262,12 +261,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 686C1A601E0651020084A080 /* Build configuration list for PBXNativeTarget "FirebaseSwiftExampleTests" */;
 			buildPhases = (
-				796874495CAE5C0B5F1C199C /* 📦 Check Pods Manifest.lock */,
+				796874495CAE5C0B5F1C199C /* [CP] Check Pods Manifest.lock */,
 				686C1A451E0651020084A080 /* Sources */,
 				686C1A461E0651020084A080 /* Frameworks */,
 				686C1A471E0651020084A080 /* Resources */,
-				FA70C2AB7D91B8A819789E9A /* 📦 Embed Pods Frameworks */,
-				1189C31E7CC8ABE9C3007298 /* 📦 Copy Pods Resources */,
+				FA70C2AB7D91B8A819789E9A /* [CP] Embed Pods Frameworks */,
+				1189C31E7CC8ABE9C3007298 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -283,11 +282,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 686C1A631E0651020084A080 /* Build configuration list for PBXNativeTarget "FirebaseSwiftExampleUITests" */;
 			buildPhases = (
-				B35BF41505A46FE091A4535B /* 📦 Check Pods Manifest.lock */,
+				B35BF41505A46FE091A4535B /* [CP] Check Pods Manifest.lock */,
 				686C1A501E0651020084A080 /* Sources */,
 				686C1A511E0651020084A080 /* Frameworks */,
 				686C1A521E0651020084A080 /* Resources */,
-				DDCF9E3B5413BFE4A9128B48 /* 📦 Copy Pods Resources */,
+				DDCF9E3B5413BFE4A9128B48 /* [CP] Copy Pods Resources */,
+				818E1EB95B9788AF791F8970 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -306,20 +306,23 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Collierosity, LLC";
 				TargetAttributes = {
 					686C1A321E0651010084A080 = {
 						CreatedOnToolsVersion = 8.2;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					686C1A481E0651020084A080 = {
 						CreatedOnToolsVersion = 8.2;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 686C1A321E0651010084A080;
 					};
 					686C1A531E0651020084A080 = {
 						CreatedOnToolsVersion = 8.2;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 686C1A321E0651010084A080;
 					};
@@ -354,9 +357,9 @@
 				686C1A7A1E065AF10084A080 /* .gitignore in Resources */,
 				686C1A731E0653A10084A080 /* Authentication.storyboard in Resources */,
 				686C1A431E0651020084A080 /* LaunchScreen.storyboard in Resources */,
-				686C1A671E0651BC0084A080 /* GoogleService-Info.plist in Resources */,
 				686C1A401E0651020084A080 /* Assets.xcassets in Resources */,
 				686C1A7E1E07155A0084A080 /* LICENSE in Resources */,
+				6873A2B91F9E691D005FF8A8 /* GoogleService-Info.plist in Resources */,
 				686C1A3E1E0651010084A080 /* Main.storyboard in Resources */,
 				686C1A721E0653A10084A080 /* Assets.xcassets in Resources */,
 			);
@@ -379,14 +382,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1189C31E7CC8ABE9C3007298 /* 📦 Copy Pods Resources */ = {
+		1189C31E7CC8ABE9C3007298 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -394,14 +397,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FirebaseSwiftExampleTests/Pods-FirebaseSwiftExampleTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2C1E41FC365D236F46E6F1EA /* 📦 Copy Pods Resources */ = {
+		2C1E41FC365D236F46E6F1EA /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,74 +412,119 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FirebaseSwiftExample/Pods-FirebaseSwiftExample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		796874495CAE5C0B5F1C199C /* 📦 Check Pods Manifest.lock */ = {
+		796874495CAE5C0B5F1C199C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FirebaseSwiftExampleTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		818E1EB95B9788AF791F8970 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FirebaseSwiftExampleUITests/Pods-FirebaseSwiftExampleUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8610640B065049E03B1399FC /* 📦 Embed Pods Frameworks */ = {
+		8610640B065049E03B1399FC /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FirebaseSwiftExample/Pods-FirebaseSwiftExample-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FirebaseSwiftExample/Pods-FirebaseSwiftExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8C14477E1757EA1AE7D135F4 /* 📦 Check Pods Manifest.lock */ = {
+		8C14477E1757EA1AE7D135F4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FirebaseSwiftExample-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B35BF41505A46FE091A4535B /* 📦 Check Pods Manifest.lock */ = {
+		B35BF41505A46FE091A4535B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FirebaseSwiftExampleUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DDCF9E3B5413BFE4A9128B48 /* 📦 Copy Pods Resources */ = {
+		DDCF9E3B5413BFE4A9128B48 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,14 +532,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FirebaseSwiftExampleUITests/Pods-FirebaseSwiftExampleUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FA70C2AB7D91B8A819789E9A /* 📦 Embed Pods Frameworks */ = {
+		FA70C2AB7D91B8A819789E9A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -514,7 +562,6 @@
 				686C1A771E0653A10084A080 /* SignUpEmailViewController.swift in Sources */,
 				686C1A371E0651010084A080 /* AppDelegate.swift in Sources */,
 				686C1A751E0653A10084A080 /* ForgotEmailViewController.swift in Sources */,
-				686C1A801E07155A0084A080 /* README.md in Sources */,
 				686C1A391E0651010084A080 /* AccountViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -579,7 +626,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -587,7 +636,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -610,7 +663,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -629,7 +682,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -637,7 +692,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -654,7 +713,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -670,9 +729,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FirebaseSwiftExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.collierosity.FirebaseSwiftExample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.collierosity.FirestoreSwiftExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -683,9 +743,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FirebaseSwiftExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.collierosity.FirebaseSwiftExample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.collierosity.FirestoreSwiftExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -693,13 +754,30 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 05BAE189DBD1E749A5BEC907 /* Pods-FirebaseSwiftExampleTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAuth\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseDatabase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseInstanceID\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseStorage\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleInterchangeUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleNetworkingUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleParsingUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleSymbolUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleUtilities\"",
+					"\"${PODS_ROOT}/Firebase/Core/Sources\"",
+				);
 				INFOPLIST_FILE = FirebaseSwiftExampleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.collierosity.FirebaseSwiftExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FirebaseSwiftExample.app/FirebaseSwiftExample";
 			};
 			name = Debug;
@@ -708,13 +786,30 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ECC8DC1AC2EB028AD4DE7A8E /* Pods-FirebaseSwiftExampleTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAuth\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseDatabase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseInstanceID\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseStorage\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleInterchangeUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleNetworkingUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleParsingUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleSymbolUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleUtilities\"",
+					"\"${PODS_ROOT}/Firebase/Core/Sources\"",
+				);
 				INFOPLIST_FILE = FirebaseSwiftExampleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.collierosity.FirebaseSwiftExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FirebaseSwiftExample.app/FirebaseSwiftExample";
 			};
 			name = Release;
@@ -723,12 +818,29 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 392B1D6F0404B9C6A14F6D27 /* Pods-FirebaseSwiftExampleUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAuth\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseDatabase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseInstanceID\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseStorage\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleInterchangeUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleNetworkingUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleParsingUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleSymbolUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleUtilities\"",
+					"\"${PODS_ROOT}/Firebase/Core/Sources\"",
+				);
 				INFOPLIST_FILE = FirebaseSwiftExampleUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.collierosity.FirebaseSwiftExampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = FirebaseSwiftExample;
 			};
 			name = Debug;
@@ -737,12 +849,29 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DEFC63CC516091F5CEEDF842 /* Pods-FirebaseSwiftExampleUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAuth\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseDatabase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseInstanceID\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseStorage\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleInterchangeUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleNetworkingUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleParsingUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleSymbolUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleUtilities\"",
+					"\"${PODS_ROOT}/Firebase/Core/Sources\"",
+				);
 				INFOPLIST_FILE = FirebaseSwiftExampleUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.collierosity.FirebaseSwiftExampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = FirebaseSwiftExample;
 			};
 			name = Release;

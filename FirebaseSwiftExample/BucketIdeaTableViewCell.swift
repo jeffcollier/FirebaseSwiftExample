@@ -10,7 +10,7 @@ import UIKit
 
 class BucketIdeaTableViewCell: UITableViewCell {
 
-    var bucketIdea: NSDictionary? {
+    var bucketIdea: [String: Any]? {
         didSet {
             self.configureView()
         }
@@ -18,7 +18,7 @@ class BucketIdeaTableViewCell: UITableViewCell {
 
     func configureView () {
         if let bucketIdea = self.bucketIdea {
-            textLabel?.text = bucketIdea.value(forKey: "name") as? String ?? "No Name"
+            textLabel?.text = bucketIdea["name"] as? String ?? "No Name"
         }
     }
 

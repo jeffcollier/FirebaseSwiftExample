@@ -7,33 +7,33 @@
 //
 
 import Foundation
-import FirebaseDatabase
+import FirebaseFirestore
 
 class FirebaseSnapshotsController {
     
     var handlers: [() -> Void] = []
-    var snapshots: [FIRDataSnapshot] = []
+    var snapshots: [DocumentSnapshot] = []
     
     var count: Int {
-        get { return snapshots.count ?? 0}
+        get { return snapshots.count }
     }
     var maxPriority: Int {
-        get { return snapshots.last?.priority as? Int ?? 0 }
+        get { return snapshots.last?.data()["priority"] as? Int ?? 0 }
     }
     
     
-    func find (_ snapshot: FIRDataSnapshot) -> FIRDataSnapshot? {
-        return find(byKey: snapshot.key)
+    func find (_ snapshot: DocumentSnapshot) -> DocumentSnapshot? {
+        return find(byID: snapshot.documentID)
     }
     
-    func find (byIndex index: Int) -> FIRDataSnapshot? {
+    func find (byIndex index: Int) -> DocumentSnapshot? {
         if snapshots.count == 0 || index < 0 || index > snapshots.count - 1 { return nil }
         return snapshots[index]
     }
     
-    func find (byKey key: String) -> FIRDataSnapshot? {
+    func find (byID id: String) -> DocumentSnapshot? {
         for (index, element) in snapshots.enumerated() {
-            if element.key == key {
+            if element.documentID == id {
                 return snapshots[index]
             }
         }
@@ -41,9 +41,9 @@ class FirebaseSnapshotsController {
         return nil
     }
     
-    func indexOf (_ snapshot: FIRDataSnapshot) -> Int? {
+    func indexOf (_ snapshot: DocumentSnapshot) -> Int? {
         for (index, element) in snapshots.enumerated() {
-            if element.key == snapshot.key {
+            if element.documentID == snapshot.documentID {
                 return index
             }
         }
@@ -51,9 +51,9 @@ class FirebaseSnapshotsController {
         return nil
     }
     
-    func indexOf (byKey key: String?) -> Int? {
+    func indexOf (byID id: String?) -> Int? {
         for (index, element) in snapshots.enumerated() {
-            if element.key == key {
+            if element.documentID == id {
                 return index
             }
         }
@@ -61,12 +61,12 @@ class FirebaseSnapshotsController {
         return nil
     }
     
-    func append (_ snapshot: FIRDataSnapshot) -> Int? {
+    func append (_ snapshot: DocumentSnapshot) -> Int? {
         snapshots.append(snapshot)
         return snapshots.count - 1
     }
     
-    func replace (_ snapshot: FIRDataSnapshot) -> Int? {
+    func replace (_ snapshot: DocumentSnapshot) -> Int? {
         if let index = indexOf(snapshot) {
             snapshots[index] = snapshot
             return index
@@ -75,7 +75,7 @@ class FirebaseSnapshotsController {
         return nil
     }
     
-    func remove (_ snapshot: FIRDataSnapshot) -> Int? {
+    func remove (_ snapshot: DocumentSnapshot) -> Int? {
         if let index = indexOf(snapshot) {
             snapshots.remove(at: index)
             return index
@@ -98,7 +98,7 @@ class FirebaseSnapshotsController {
         return toIndex
     }
     
-    func move (_ snapshot: FIRDataSnapshot, to toIndex: Int) -> Int? {
+    func move (_ snapshot: DocumentSnapshot, to toIndex: Int) -> Int? {
         if snapshots.count == 0 || toIndex < 0 || toIndex > snapshots.count - 1 { return nil }
         guard let fromIndex = indexOf(snapshot) else { return nil }
         
@@ -114,29 +114,29 @@ class FirebaseSnapshotsController {
         if snapshots.count == 0 || fromIndex < 0 || fromIndex > snapshots.count - 1 || toIndex < 0 || toIndex > snapshots.count - 1 { return nil }
         
         let movedElement = snapshots[fromIndex]
-        let movedPriority = movedElement.priority as? Int ?? 0
+        let movedPriority = movedElement.data()["priority"] as? Int ?? 0
         print("Calculating priority for idea moving from index = \(fromIndex) with priority = \(movedPriority) to index = \(toIndex)")
         
-        let displacedPriority = snapshots[toIndex].priority as? Int ?? 0
+        let displacedPriority = snapshots[toIndex].data()["priority"] as? Int ?? 0
         var newPriority: Int
         if toIndex == 0 {
             // If moved to the beginning, calculate the midpoint between 0 and the first element
-            let firstPriority = snapshots.first?.priority as? Int ?? 0
+            let firstPriority = snapshots.first?.data()["priority"] as? Int ?? 0
             newPriority = firstPriority / 2
         }
         else if toIndex == snapshots.count - 1 {
             // If moved to the end, calculate the average difference between each element and add to the last element
-            let lastPriority = snapshots.last?.priority as? Int ?? 0
+            let lastPriority = snapshots.last?.data()["priority"] as? Int ?? 0
             newPriority = lastPriority + ((lastPriority - 0) / snapshots.count)
         }
         else if toIndex > fromIndex {
             // If moving right, calculate the midpoint using the succeeding element
-            let succeedingPriority = snapshots[toIndex + 1].priority as? Int ?? 0
+            let succeedingPriority = snapshots[toIndex + 1].data()["priority"] as? Int ?? 0
             newPriority = ((succeedingPriority - displacedPriority) / 2) + displacedPriority
         }
         else {
             // Otherwise, calculate the midpoint between the two elements
-            let precedingPriority = snapshots[toIndex - 1].priority as? Int ?? 0
+            let precedingPriority = snapshots[toIndex - 1].data()["priority"] as? Int ?? 0
             newPriority = ((displacedPriority - precedingPriority) / 2) + precedingPriority
         }
         print("Calculated priority for idea moving from index = \(fromIndex) with priority = \(movedPriority) to index = \(toIndex) as new priority = \(newPriority)")
@@ -144,9 +144,8 @@ class FirebaseSnapshotsController {
         return newPriority
     }
     
-    func childValueAsString (in snapshot: FIRDataSnapshot, for key: String) -> String? {
-        guard let dictionary = snapshot.value as? NSDictionary else { return nil }
-        guard let value = dictionary.value(forKey: key) as? String else { return nil }
+    func childValueAsString (in snapshot: DocumentSnapshot, for key: String) -> String? {
+        guard let value = snapshot.data()[key] as? String else { return nil }
         
         return value
     }

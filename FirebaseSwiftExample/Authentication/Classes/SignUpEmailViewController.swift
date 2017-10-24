@@ -14,9 +14,9 @@ class SignUpEmailViewController: UIViewController {
     
     // MARK: Segues
     
-    func handleSuccess (forUser user: FIRUser) {
+    func handleSuccess (forUser user: User) {
         // Log an event with Firebase Analytics. See FIREventNames.h for pre-defined event strings
-        FIRAnalytics.logEvent(withName: kFIREventSignUp, parameters: nil)
+        Analytics.logEvent(AnalyticsEventSignUp, parameters: nil)
         
         let newemail = user.email ?? "your email address"
         let alert = UIAlertController(title: "Success", message: "You have a new account for \(newemail)", preferredStyle: .alert)
@@ -37,21 +37,21 @@ class SignUpEmailViewController: UIViewController {
         configureViewBusy()
         
         // Create a new user with Firebase using the email provider. Callback with FIRUser, Error with _code = FIRAuthErrorCode
-        FIRAuth.auth()?.createUser(withEmail: email, password: password) { (user, error) in
+        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             
             self.configureViewNotBusy()
             
-            if let error = error, let errorCode = FIRAuthErrorCode(rawValue: error._code) {
+            if let error = error, let errorCode = AuthErrorCode(rawValue: error._code) {
                 switch errorCode {
-                case .errorCodeWeakPassword:
+                case .weakPassword:
                     let alert = UIAlertController(title: "Weak password", message: "The password you entered is not strong enough with varied characters. Please try a different password", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Try Again", style: .default, handler: {(action) in }))
                     self.present(alert, animated: true, completion: {() -> Void in })
-                case .errorCodeEmailAlreadyInUse:
+                case .emailAlreadyInUse:
                     let alert = UIAlertController(title: "Account exists", message: "The email address \(email) already exists. Either login with the password for that address or click the help button if you have forgotten your password", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: {(action) in }))
                     self.present(alert, animated: true, completion: {() -> Void in })
-                case .errorCodeInvalidEmail:
+                case .invalidEmail:
                     let alert = UIAlertController(title: "Incorrect Email Address", message: "The email address you entered doesn't appear to belong to an account. Please check your address and try again", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Try Again", style: .default, handler: {(action) -> Void in }))
                     self.present(alert, animated: true, completion: {() -> Void in })

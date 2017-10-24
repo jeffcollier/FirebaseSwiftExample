@@ -16,18 +16,18 @@ class SignInEmailViewController: UIViewController {
 
     // Return point for any downstream views such as Sign Up
     @IBAction func unwindToSignIn(segue: UIStoryboardSegue) {
-        if let user = FIRAuth.auth()?.currentUser {
+        if let user = Auth.auth().currentUser {
             handleSuccess(forUser: user)
         }
     }
     
-    func handleSuccess (forUser user: FIRUser) {
+    func handleSuccess (forUser user: User) {
         // Cache the email address with the iOS utility class
         UserDefaults().set(user.email, forKey: "auth_emailaddress")
         UserDefaults().synchronize()
         
         // Log an event with Firebase Analytics. See FIREventNames.h for pre-defined event strings
-        FIRAnalytics.logEvent(withName: kFIREventLogin, parameters: nil)
+        Analytics.logEvent(AnalyticsEventLogin, parameters: nil)
         
         performSegue(withIdentifier: "unwindFromSignIn", sender: self)
     }
@@ -41,19 +41,19 @@ class SignInEmailViewController: UIViewController {
         configureViewBusy()
         
         // Sign in a user with Firebase using the email provider. Callback with FIRUser, Error with _code = FIRAuthErrorCode
-        FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
+        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
 
             self.configureViewNotBusy()
 
-            if let error = error, let errorCode = FIRAuthErrorCode(rawValue: error._code) {
+            if let error = error, let errorCode = AuthErrorCode(rawValue: error._code) {
                     switch errorCode {
-                    case .errorCodeWrongPassword,
-                         .errorCodeInvalidCredential:
+                    case .wrongPassword,
+                         .invalidCredential:
                         let alert = UIAlertController(title: "Incorrect password for \(email)", message: "The password you entered is incorrect. Please try again", preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "Try Again", style: .default, handler: {(action) in self.clearPassword() }))
                         self.present(alert, animated: true, completion: {() -> Void in })
-                    case .errorCodeUserNotFound,
-                         .errorCodeInvalidEmail:
+                    case .userNotFound,
+                         .invalidEmail:
                         let alert = UIAlertController(title: "Incorrect Email Address", message: "The email address you entered doesn't appear to belong to an account. Please check your address and try again", preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "Try Again", style: .default, handler: {(action) -> Void in
                             self.clearPassword()

@@ -6,10 +6,10 @@ target 'FirebaseSwiftExample' do
   use_frameworks!
 
   # Pods for FirebaseSwiftExample
-  pod ‘Firebase/Core’
+  pod 'Firebase/Core'
   pod 'Firebase/Analytics'
-  pod ‘Firebase/Auth’
-  pod ‘Firebase/Database’
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
 
   target 'FirebaseSwiftExampleTests' do
