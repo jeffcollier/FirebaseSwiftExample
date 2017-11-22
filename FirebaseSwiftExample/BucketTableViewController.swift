@@ -13,14 +13,12 @@ import FirebaseFirestore
 
 class BucketTableViewController: UITableViewController {
     
-    // A reference to the remote Firebase database which also handles local persistence when offline
-    var ref: CollectionReference?
-    var query: Query?
-    var listener: ListenerRegistration?
+    // References to the remote Firebase database which also handles local persistence when offline
+    var bucketItemsCollection: CollectionReference?
+    var bucketItems: [DocumentSnapshot] = []
+    var queryListener: ListenerRegistration?
+    var queryUser: User?
 
-    // A reference to my utlity class for managing a local cache (array) of snapshots for the remote Firebase database
-    var snapshotsController = FirebaseSnapshotsController()
-    
     // MARK: View Lifecycle
     
     override func viewDidLoad() {
@@ -33,28 +31,30 @@ class BucketTableViewController: UITableViewController {
         let imageView = UIImageView(image: UIImage(named: "AppTitleBarLogo"))
         imageView.contentMode =  .scaleAspectFill
         navigationItem.titleView = imageView
-        
-        self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 140
-        
-        // Obtain a database reference to bucket list for the signed-in user
-        guard let user = Auth.auth().currentUser else { return }
-        ref = Firestore.firestore().collection("users/\(user.uid)/bucketlists")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        // Obtain a reference to the collection in Firestore
+        guard let currUser = Auth.auth().currentUser else { return }
+        self.bucketItemsCollection = Firestore.firestore().collection("users/\(currUser.uid)/bucketlists")
+        guard let bucketItemsCollection = self.bucketItemsCollection else { return }
         
-        // Synchronize the table view with the (empty) data source (local cache of snapshots) before adding initial data into the data source
-        tableView.reloadData()
-        
-        // For a static list, use .getDocuments(completion: <#T##FIRQuerySnapshotBlock##FIRQuerySnapshotBlock##(QuerySnapshot?, Error?) -> Void#>)
-        // for document in querySnapshot!.documents
-        // document.documentID, data(), map, type
-        // func data() -> [String : Any] which is an NSDictionary
-        
-        listener = ref?.order(by: "priority").addSnapshotListener { querySnapshot, error in
-            guard let snapshot = querySnapshot else {
+        // Run the main query and create a listener only if this is the first presentation, or if the user has changed
+        // If the listener were removed, the complete set of data would appear as "changes" with each view presentation
+        if self.queryListener != nil && self.queryUser == currUser { return }
+
+        // Reset the query, data source, and table view
+        self.queryListener?.remove()
+        self.bucketItems = []
+        self.tableView.reloadData()
+        self.queryUser = currUser
+
+        // Run the query, update the data source, and update the table view
+        let query = bucketItemsCollection.order(by: "priority")
+        self.queryListener = query.addSnapshotListener { querySnapshot, error in
+            guard let querySnapshot = querySnapshot else {
                 print("Error fetching snapshots: \(error!)")
                 return
             }
@@ -62,65 +62,51 @@ class BucketTableViewController: UITableViewController {
                 print("Error retreiving collection: \(error)")
                 return
             }
-            snapshot.documentChanges.forEach { docChange in
-                if (docChange.type == .added) {
-                    if let index = self.snapshotsController.append(docChange.document) {
-                        let indexPath = IndexPath(row: index, section: 0)
-                        self.tableView.insertRows(at: [indexPath], with: .automatic)
-                        self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
-                    }
-                }
-                if (docChange.type == .modified) {
-                    // If the change happened in place
-                    if (docChange.oldIndex == docChange.newIndex) {
-                        print("Change in place")
-                        if let index = self.snapshotsController.replace(docChange.document) {
-                            let indexPath = IndexPath(row: index, section: 0)
-                            self.tableView.reloadRows(at: [indexPath], with: .automatic)
-                            self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+            
+            // Update the table data source
+            self.bucketItems = querySnapshot.documents
+            
+            // Update the table view, animating all the table changes at the same time
+            // Note: Indexes for inserts must be new; updates and deletes must be original
+            var scrollToIndex: UInt = 0
+            self.tableView.performBatchUpdates({
+                querySnapshot.documentChanges.forEach { docChange in
+                    switch (docChange.type) {
+                    case .added:
+                        self.tableView.insertRows(at: [IndexPath(row: Int(docChange.newIndex), section: 0)], with: .automatic)
+                    case .modified:
+                        // In-place change
+                        if (docChange.oldIndex == docChange.newIndex) {
+                            self.tableView.reloadRows(at: [IndexPath(row: Int(docChange.oldIndex), section: 0)], with: .automatic)
                         }
-                    }
-                    // Otherwise, the order changed
-                    else {
-                        print("Change with oldIndex=\(docChange.oldIndex) and newIndex=\(docChange.newIndex)")
-                        /* TODO:
-                         let fromIndex = self.snapshotsController.indexOf(snapshot) ?? 0
-                        print("The idea with name = \((snapshot.value as? NSDictionary)?.value(forKey: "name") ?? "No Name") and priority = \(snapshot.priority ?? -1) moved from \(fromIndex)")
-                        
-                        let previousIndex = self.snapshotsController.indexOf(byKey: previousKey) ?? -1
-                        // If moving to the beginning, to=0. If moving left, to will be after previous sibling. Otherwise, to will replace previous sibling
-                        let toIndex = (previousIndex == -1) ? 0 : (previousIndex < fromIndex) ? (previousIndex + 1) : previousIndex
-                        print("The new position follows index = \(previousIndex) requiring a new index = \(toIndex)")
-                        
-                        if let _ = self.snapshotsController.move(from: fromIndex, to: toIndex) {
-                            let lowerIndex = (fromIndex <= toIndex) ? fromIndex : toIndex
-                            let upperIndex = (fromIndex <= toIndex) ? toIndex : fromIndex
+                            // Reordered
+                        else {
+                            let lowerIndex = (docChange.oldIndex <= docChange.newIndex) ? docChange.oldIndex : docChange.newIndex
+                            let upperIndex = (docChange.oldIndex <= docChange.newIndex) ? docChange.newIndex : docChange.oldIndex
                             var reloadRowsIndexes: [IndexPath] = []
                             for index in lowerIndex...upperIndex {
-                                reloadRowsIndexes.append(IndexPath(row:index, section: 0))
+                                reloadRowsIndexes.append(IndexPath(row:Int(index), section: 0))
                             }
-                            print("That idea moved from index = \(fromIndex) to index = \(toIndex), requiring table rows in this range to be reloaded: \(lowerIndex)...\(upperIndex)")
                             self.tableView.reloadRows(at: reloadRowsIndexes, with: .automatic)
-                            self.tableView.scrollToRow(at: IndexPath(row: toIndex, section: 0), at: .bottom, animated: true)
-                        }*/
+                        }
+                    case .removed:
+                        self.tableView.deleteRows(at: [IndexPath(row: Int(docChange.oldIndex), section: 0)], with: .automatic)
+                    }
+                    // Scroll down to the first row that has changed (i.e. min index). Will be 0 for only deletes
+                    if (docChange.newIndex < scrollToIndex || scrollToIndex == 0) {
+                        scrollToIndex = docChange.newIndex
                     }
                 }
-                if (docChange.type == .removed) {
-                    if let index = self.snapshotsController.remove(docChange.document) {
-                        self.tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
-                    }
-                }
-            }
-        }
-        // Your listener can use the hasLocalChanges field on each document to determine whether the document has local changes that have not yet been written to the backend.
+            }, completion: {(success) in
+                // Scroll to the first/top row in the table containing a change. If the table is empty, there is no row to scroll to
+                if (querySnapshot.documents.count == 0) { return }
+                self.tableView.scrollToRow(at: IndexPath(row:Int(scrollToIndex), section: 0), at: .bottom, animated: true)
+            })
+        } // end: query.addSnapshotListener
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        
-        // Remove the Firebase database observers and empty the local cache in order to clean up memory
-        listener?.remove()
-        snapshotsController.removeAll()
     }
     
     override func didReceiveMemoryWarning() {
@@ -140,11 +126,12 @@ class BucketTableViewController: UITableViewController {
             if let text = alertController.textFields?.first?.text {
                 
                 // Log an event with Firebase Analytics
-                if self.snapshotsController.count == 0 {
+                if self.bucketItems.count == 0 {
                     Analytics.logEvent("BucketListNew", parameters: nil)
                 }
                 
-                self.ref?.document().setData(["name": text, "priority": self.snapshotsController.maxPriority + 10])
+                let maxPriority = self.bucketItems.last?.data()["priority"] as? Int ?? 0
+                self.bucketItemsCollection?.document().setData(["name": text, "priority": maxPriority + 100])
             }
         }
         
@@ -154,59 +141,112 @@ class BucketTableViewController: UITableViewController {
     }
     
     
-    // MARK: Delete and Move
+    // MARK: - Table Data Source
     
+    // Provide the number of sections and rows in the data source
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.bucketItems.count
+    }
+    
+    // Compose the cell with data from the source for a particular row
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BucketIdea", for: indexPath) as! BucketIdeaTableViewCell
+        if (self.bucketItems.indices.contains(indexPath.row)) {
+            cell.bucketIdea = self.bucketItems[indexPath.row].data()
+        }
+
+        return cell
+    }
+
+    // Inform the view that a user can edit a particular row
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
+    // The user has deleted a row in the view, through the button in editing mode or a swipe. Delete it now in the data source
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            if let snapshotToDelete = snapshotsController.find(byIndex: indexPath.row) {
-                // Remove the idea from the Firestore database using the database reference stored in the snapshot
-                snapshotToDelete.reference.delete()
-            }
+            if !self.bucketItems.indices.contains(indexPath.row) { return }
+            let itemToDeleteReference = self.bucketItems[indexPath.row].reference
+            itemToDeleteReference.delete()
         }
-        else if editingStyle == .insert {
-            self.ref?.document().setData(["name": "New Idea", "priority": self.snapshotsController.maxPriority + 10])
-        }
+        // No implementation for now for .insert
     }
     
+    // Inform the view that a user can move a particular row
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
+    // The user has moved a row in the view. Move it now in the data source
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         
-        if let snapshotForMovedRow = snapshotsController.find(byIndex: sourceIndexPath.row) {
-            if let newPriority = snapshotsController.calculatePriorityOnMove(from: sourceIndexPath.row, to: destinationIndexPath.row) {
-                let dict = snapshotForMovedRow.data() as NSDictionary
-                print ("About to set newPriority = \(newPriority) for moved row with name = \(dict["name"] ?? "No Name") and priority = \(dict["priority"] ?? 0)")
-                // Change the priority, which controls the query sort order, by changing in the Firebase database using a reference stored in the snapshot
-                snapshotForMovedRow.reference.updateData(["priority": newPriority])
-            }
+        let fromIndex = sourceIndexPath.row, toIndex = destinationIndexPath.row
+        if (!self.bucketItems.indices.contains(fromIndex) || !self.bucketItems.indices.contains(toIndex)) { return }
+        
+        let documentForMovedRow = self.bucketItems[fromIndex]
+        if let newPriority = calculateSortOnMove(self.bucketItems, from: fromIndex, to: toIndex, forSortKey: "priority") {
+            documentForMovedRow.reference.updateData(["priority": newPriority])
+        }
+    }
+}
+
+
+class BucketIdeaTableViewCell: UITableViewCell {
+    
+    var bucketIdea: [String: Any]? {
+        didSet {
+            self.configureView()
         }
     }
     
-    // MARK: - Table Data Source
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+    func configureView () {
+        if let bucketIdea = self.bucketIdea {
+            textLabel?.text = bucketIdea["name"] as? String ?? "No Name"
+        }
     }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return snapshotsController.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("cellForRowAt index=\(indexPath.row)")
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BucketIdea", for: indexPath) as! BucketIdeaTableViewCell
-        
-        let snapshot = snapshotsController.find(byIndex: indexPath.row)
-        cell.bucketIdea = snapshot?.data()
-
-        return cell
-    }
-    
 }
 
+
+// Assumes ascending priority with integers
+func calculateSortOnMove (_ documents: [DocumentSnapshot], from fromIndex: Int, to toIndex: Int, forSortKey sortKey: String) -> Int? {
+    
+    // Validate parameters
+    if !documents.indices.contains(fromIndex) || !documents.indices.contains(toIndex) { return nil }
+    
+    // No work is required on an empty or single-element array
+    if documents.count == 0  || documents.count == 1 { return nil }
+    
+    let movedDoc = documents[fromIndex]
+    let movedSort = movedDoc.data()[sortKey] as? Int ?? 0
+    
+    let displacedSort = documents[toIndex].data()[sortKey] as? Int ?? 0
+    var newSort: Int
+    if toIndex == 0 {
+        // If moved to the beginning, calculate the midpoint between 0 and the first element
+        let firstSort = documents.first?.data()[sortKey] as? Int ?? 0
+        newSort = firstSort / 2
+    }
+    else if toIndex == documents.count - 1 {
+        // If moved to the end, calculate the average difference between each element and add to the last element
+        let lastSort = documents.last?.data()[sortKey] as? Int ?? 0
+        newSort = lastSort + ((lastSort - 0) / documents.count)
+    }
+    else if toIndex > fromIndex {
+        // If moving right, calculate the midpoint using the succeeding element
+        let succeedingSort = documents[toIndex + 1].data()[sortKey] as? Int ?? 0
+        newSort = ((succeedingSort - displacedSort) / 2) + displacedSort
+    }
+    else {
+        // Otherwise, calculate the midpoint between the two elements
+        let precedingSort = documents[toIndex - 1].data()[sortKey] as? Int ?? 0
+        newSort = ((displacedSort - precedingSort) / 2) + precedingSort
+    }
+    print("Calculated sort for row moving from index = \(fromIndex) with sort = \(movedSort) to index = \(toIndex) where the sort was \(displacedSort) with new sort = \(newSort)")
+    
+    return newSort
+}
