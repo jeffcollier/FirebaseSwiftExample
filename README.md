@@ -1,5 +1,5 @@
 # Bucket List - An Example App for Firebase in Swift
-Example iOS app using Firebase, Swift 4, Xcode 9 with Auto Layout and Segues, and iOS 11. Demonstrating the Firebase Cloud Firestore, Storage (Images), Authentication, and Analytics modules. Firebase is a mobile platform from Google. The most distinguishing feature for iOS development is a local database in a mobile app that synchronizes with the cloud while gracefully handling offline modes and queueing up changes for the next connected session.
+Example iOS app using Firebase, Swift 4.2, Xcode 10 with Auto Layout and Segues, and iOS 12. Demonstrating the Firebase Cloud Firestore, Storage (Images), Authentication, and Analytics modules. Firebase is a mobile platform from Google. The most distinguishing feature for iOS development is a local database in a mobile app that synchronizes with the cloud while gracefully handling offline modes and queueing up changes for the next connected session.
 
 ![Video of App Demo](https://raw.githubusercontent.com/jeffcollier/FirebaseSwiftExample/master/FirebaseSwiftExample/Images/FirebaseSwiftExampleSignIn.gif)
 
@@ -50,7 +50,7 @@ By default, Firebase collects usage data such as device type, country, and view 
 Firebase provides string constants for common events. You can also define your own strings, but take care to avoid clashing with reserved system values such as "first_open_time"
 
 ### Cloud Firestore
-This replacement for the Firebase Realtime Database provide a local database in the same way as CoreData. The Firebase database is distinguished from CoreData at the time of this development by its syncrhonization with the cloud and by gracefully handling offline mode, queueing up changes for the next connected session. In order to query data with Firebase, you attach listener  handlers which are commonly defined in viewDidAppear methods. With this sample app, you can monitor data being created in the cloud using the Firebase Database console. Look under the "users" collection, then "bucketlists".
+This replacement for the Firebase Realtime Database provide a local database in the same way as CoreData. The Firebase database is distinguished from CoreData at the time of this development by its syncrhonization with the cloud and by gracefully handling offline mode, queueing up changes for the next connected session. In order to query data with Firebase, you attach listener  handlers which are commonly defined in viewDidAppear methods. With this sample app, you can monitor data being created in the cloud using the Firestore console. Look under the "users" collection, then "bucketlists".
 
 ### Firebase Storage
 

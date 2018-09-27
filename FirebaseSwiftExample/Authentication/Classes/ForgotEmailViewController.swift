@@ -59,7 +59,7 @@ class ForgotEmailViewController: UIViewController {
         super.viewDidLoad()
         
         busy = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: sendButton.frame.height, height: sendButton.frame.height))
-        busy.activityIndicatorViewStyle = .white
+        busy.style = .white
         busy.center = sendButton.center
         busy.hidesWhenStopped = true
         view.addSubview(busy)

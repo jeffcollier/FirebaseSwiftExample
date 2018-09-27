@@ -130,7 +130,7 @@ class BucketTableViewController: UITableViewController {
                     Analytics.logEvent("BucketListNew", parameters: nil)
                 }
                 
-                let maxPriority = self.bucketItems.last?.data()["priority"] as? Int ?? 0
+                let maxPriority = self.bucketItems.last?.data()?["priority"] as? Int ?? 0
                 self.bucketItemsCollection?.document().setData(["name": text, "priority": maxPriority + 100])
             }
         }
@@ -168,7 +168,7 @@ class BucketTableViewController: UITableViewController {
     }
     
     // The user has deleted a row in the view, through the button in editing mode or a swipe. Delete it now in the data source
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             if !self.bucketItems.indices.contains(indexPath.row) { return }
             let itemToDeleteReference = self.bucketItems[indexPath.row].reference
@@ -222,28 +222,28 @@ func calculateSortOnMove (_ documents: [DocumentSnapshot], from fromIndex: Int, 
     if documents.count == 0  || documents.count == 1 { return nil }
     
     let movedDoc = documents[fromIndex]
-    let movedSort = movedDoc.data()[sortKey] as? Int ?? 0
+    let movedSort = movedDoc.data()?[sortKey] as? Int ?? 0
     
-    let displacedSort = documents[toIndex].data()[sortKey] as? Int ?? 0
+    let displacedSort = documents[toIndex].data()?[sortKey] as? Int ?? 0
     var newSort: Int
     if toIndex == 0 {
         // If moved to the beginning, calculate the midpoint between 0 and the first element
-        let firstSort = documents.first?.data()[sortKey] as? Int ?? 0
+        let firstSort = documents.first?.data()?[sortKey] as? Int ?? 0
         newSort = firstSort / 2
     }
     else if toIndex == documents.count - 1 {
         // If moved to the end, calculate the average difference between each element and add to the last element
-        let lastSort = documents.last?.data()[sortKey] as? Int ?? 0
+        let lastSort = documents.last?.data()?[sortKey] as? Int ?? 0
         newSort = lastSort + ((lastSort - 0) / documents.count)
     }
     else if toIndex > fromIndex {
         // If moving right, calculate the midpoint using the succeeding element
-        let succeedingSort = documents[toIndex + 1].data()[sortKey] as? Int ?? 0
+        let succeedingSort = documents[toIndex + 1].data()?[sortKey] as? Int ?? 0
         newSort = ((succeedingSort - displacedSort) / 2) + displacedSort
     }
     else {
         // Otherwise, calculate the midpoint between the two elements
-        let precedingSort = documents[toIndex - 1].data()[sortKey] as? Int ?? 0
+        let precedingSort = documents[toIndex - 1].data()?[sortKey] as? Int ?? 0
         newSort = ((displacedSort - precedingSort) / 2) + precedingSort
     }
     print("Calculated sort for row moving from index = \(fromIndex) with sort = \(movedSort) to index = \(toIndex) where the sort was \(displacedSort) with new sort = \(newSort)")

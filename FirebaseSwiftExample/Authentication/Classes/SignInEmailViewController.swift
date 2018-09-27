@@ -41,7 +41,7 @@ class SignInEmailViewController: UIViewController {
         configureViewBusy()
         
         // Sign in a user with Firebase using the email provider. Callback with FIRUser, Error with _code = FIRAuthErrorCode
-        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+        Auth.auth().signIn(withEmail: email, password: password) { (authDataResult, error) in
 
             self.configureViewNotBusy()
 
@@ -72,7 +72,7 @@ class SignInEmailViewController: UIViewController {
                     return
             }
             
-            guard let user = user else {
+            guard let user = authDataResult?.user else {
                 // This should never happen and would be an error with Firebase
                 let alert = UIAlertController(title: "I'm Stumped", message: "Firebase returned no error message and no user", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Okay?", style: .default, handler: {(action) -> Void in }))
@@ -97,7 +97,7 @@ class SignInEmailViewController: UIViewController {
         super.viewDidLoad()
 
         busy = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: loginButton.frame.height, height: loginButton.frame.height))
-        busy.activityIndicatorViewStyle = .white
+        busy.style = .white
         busy.center = loginButton.center
         busy.hidesWhenStopped = true
         view.addSubview(busy)

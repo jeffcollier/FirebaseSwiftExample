@@ -74,16 +74,19 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     // After the user picks an image, update the view and Firebase Storage
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
         
-        guard let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage,
+        guard let pickedImage = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage,
               let user = Auth.auth().currentUser else {
             picker.dismiss(animated: true, completion: nil)
             return
         }
 
         guard let image = pickedImage.scaleAndCrop(withAspect: true, to: 200),
-              let imageData = UIImagePNGRepresentation(image) else {
+              let imageData = image.pngData() else {
             picker.dismiss(animated: true, completion: nil)
             return
         }
@@ -108,7 +111,7 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
             // Create a thumbnail image for future use, too
             // TODO: Move this to a server-side background worker task
             guard let image = pickedImage.scaleAndCrop(withAspect: true, to: 40),
-                let imageData = UIImagePNGRepresentation(image) else {
+                let imageData = image.pngData() else {
                     return
             }
             let storageRef = Storage.storage().reference().child("shared/\(user.uid)/profile-80x80.png")
@@ -191,3 +194,13 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
 }
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
+}
